@@ -19,3 +19,9 @@ Instructions for installing dependencies and running the app will be added as de
 
 - Set up main layout with placeholder components for weather, outfit, and history.
 - Implemented controlled input for city search (no API call yet).
+
+### Weather API Integration
+
+- Connected city search to OpenWeatherMap API.
+- Displays temperature, condition, wind speed, and humidity.
+- Handles loading and error states.
