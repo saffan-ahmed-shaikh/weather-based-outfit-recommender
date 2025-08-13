@@ -6,23 +6,56 @@ const getOutfitSuggestion = (weather) => {
   const suggestions = [];
 
   // Condition-based suggestions
-  if (weather.condition.toLowerCase().includes("rain")) {
-    suggestions.push("Take an umbrella.");
+  const condition = weather.condition.toLowerCase();
+  if (condition.includes("rain")) {
+    suggestions.push("Take an umbrella");
+    suggestions.push("Consider waterproof shoes");
   }
-  if (weather.condition.toLowerCase().includes("sun")) {
-    suggestions.push("Sunglasses suggested.");
+  if (condition.includes("sun")) {
+    suggestions.push("Sunglasses suggested");
+    suggestions.push("Apply sunscreen");
+  }
+  if (condition.includes("snow")) {
+    suggestions.push("Wear boots");
+    suggestions.push("Wear warm gloves");
+  }
+  if (condition.includes("cloud")) {
+    suggestions.push("A light sweater may be handy");
   }
 
   // Temperature-based suggestions
-  if (weather.temp < 15) {
-    suggestions.push("Wear a jacket.");
+  if (weather.temp < 5) {
+    suggestions.push("Bundle up with a heavy coat");
+    suggestions.push("Wear a scarf and hat");
+  } else if (weather.temp < 15) {
+    suggestions.push("Wear a jacket");
+    suggestions.push("Long sleeves are recommended");
+  } else if (weather.temp > 30) {
+    suggestions.push("Stay hydrated");
+    suggestions.push("Wear light, breathable clothes");
+    suggestions.push("A hat can help with the heat");
   } else if (weather.temp > 25) {
-    suggestions.push("Wear light clothes.");
+    suggestions.push("Wear light clothes");
   } else {
-    suggestions.push("Dress comfortably.");
+    suggestions.push("Dress comfortably");
   }
 
-  return suggestions.join(" ");
+  // Wind-based suggestions
+  if (weather.wind && weather.wind > 10) {
+    suggestions.push("It's windy—consider a windbreaker");
+  }
+
+  // Humidity-based suggestions
+  if (weather.humidity && weather.humidity > 80) {
+    suggestions.push("Humidity is high—choose moisture-wicking fabrics");
+  }
+
+  // Friendly closing suggestion
+  suggestions.push("Have a great day!");
+
+  // Remove duplicates and join with punctuation
+  const uniqueSuggestions = [...new Set(suggestions)];
+  return uniqueSuggestions.join(". ") + ".";
 };
 
 const OutfitRecommendation = ({ weather }) => (

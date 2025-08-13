@@ -57,20 +57,22 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: 500,
-        margin: "2rem auto",
-        padding: "1rem",
-        border: "1px solid #ccc",
-        borderRadius: 8,
-      }}
-    >
-      <h2>Weather-Based Outfit Recommender</h2>
-      <SearchBar onSearch={handleCitySearch} />
-      <WeatherDisplay weather={weather} loading={loading} error={error} />
-      <OutfitRecommendation weather={weather} />
-      <SearchHistory history={history} onHistoryClick={handleHistoryClick} />
+    <div className="app-container">
+      <div
+        style={{
+          maxWidth: 500,
+          margin: "2rem auto",
+          padding: "1rem",
+          border: "1px solid #ccc",
+          borderRadius: 8,
+        }}
+      >
+        <h2>Weather-Based Outfit Recommender</h2>
+        <SearchBar onSearch={handleCitySearch} />
+        <WeatherDisplay weather={weather} loading={loading} error={error} />
+        <OutfitRecommendation weather={weather} />
+        <SearchHistory history={history} onHistoryClick={handleHistoryClick} />
+      </div>
     </div>
   );
 }
