@@ -30,3 +30,8 @@ Instructions for installing dependencies and running the app will be added as de
 
 - Added simple logic for outfit suggestions based on temperature and weather condition.
 - Examples: "Take an umbrella" if rainy, "Wear a jacket" if cold, "Sunglasses suggested" if sunny.
+
+### Search History
+
+- Displays the last 5 searched cities.
+- Users can click a city in the history to re-fetch its weather.

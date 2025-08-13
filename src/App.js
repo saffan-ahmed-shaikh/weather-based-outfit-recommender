@@ -8,8 +8,9 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [history, setHistory] = useState([]);
 
-  const handleCitySearch = async (city) => {
+  const fetchWeather = async (city) => {
     setLoading(true);
     setError("");
     setWeather(null);
@@ -32,11 +33,27 @@ function App() {
         wind: data.wind.speed,
         humidity: data.main.humidity,
       });
+
+      // Update history: remove duplicates, add to front, keep max 5
+      setHistory((prev) => {
+        const filtered = prev.filter(
+          (c) => c.toLowerCase() !== data.name.toLowerCase()
+        );
+        return [data.name, ...filtered].slice(0, 5);
+      });
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleCitySearch = (city) => {
+    fetchWeather(city);
+  };
+
+  const handleHistoryClick = (city) => {
+    fetchWeather(city);
   };
 
   return (
@@ -53,7 +70,7 @@ function App() {
       <SearchBar onSearch={handleCitySearch} />
       <WeatherDisplay weather={weather} loading={loading} error={error} />
       <OutfitRecommendation weather={weather} />
-      <SearchHistory />
+      <SearchHistory history={history} onHistoryClick={handleHistoryClick} />
     </div>
   );
 }
