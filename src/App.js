@@ -52,7 +52,7 @@ function App() {
       <h2>Weather-Based Outfit Recommender</h2>
       <SearchBar onSearch={handleCitySearch} />
       <WeatherDisplay weather={weather} loading={loading} error={error} />
-      <OutfitRecommendation />
+      <OutfitRecommendation weather={weather} />
       <SearchHistory />
     </div>
   );

@@ -25,3 +25,8 @@ Instructions for installing dependencies and running the app will be added as de
 - Connected city search to OpenWeatherMap API.
 - Displays temperature, condition, wind speed, and humidity.
 - Handles loading and error states.
+
+### Outfit Recommendation
+
+- Added simple logic for outfit suggestions based on temperature and weather condition.
+- Examples: "Take an umbrella" if rainy, "Wear a jacket" if cold, "Sunglasses suggested" if sunny.
