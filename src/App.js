@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import SearchBar from "./components/SearchBar";
+import WeatherDisplay from "./components/WeatherDisplay";
+import OutfitRecommendation from "./components/OutfitRecommendation";
+import SearchHistory from "./components/SearchHistory";
 
 function App() {
+  const handleCitySearch = (city) => {
+    console.log("Search for:", city);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        maxWidth: 500,
+        margin: "2rem auto",
+        padding: "1rem",
+        border: "1px solid #ccc",
+        borderRadius: 8,
+      }}
+    >
+      <h2>Weather-Based Outfit Recommender</h2>
+      <SearchBar onSearch={handleCitySearch} />
+      <WeatherDisplay />
+      <OutfitRecommendation />
+      <SearchHistory />
     </div>
   );
 }

@@ -12,3 +12,10 @@ Instructions for installing dependencies and running the app will be added as de
 - Weather display (temperature, condition, wind, humidity)
 - Outfit recommendations
 - Search history
+
+## Development Progress
+
+### UI Skeleton & City Search Input
+
+- Set up main layout with placeholder components for weather, outfit, and history.
+- Implemented controlled input for city search (no API call yet).
